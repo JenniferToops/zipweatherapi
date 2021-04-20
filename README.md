@@ -3,7 +3,7 @@
 <p>This app was built with HTML, CSS, JavaScript, and requires two external APIs. The user enters a zip code into the form: the first API feeds the city name value to the second API, which uses the city name to locate the temperature property and renders that value to the DOM</p>
 
 <h2>APIs: </h2>
-<ul font-style="italic">
+<ul style="font-style: italic">
     <li>https://zipwise.com</li>
     <li>https://weatherapi.com</li>
 </ul>
