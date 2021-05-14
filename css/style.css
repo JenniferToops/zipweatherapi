@@ -2,6 +2,8 @@
 /* CSS
 /*******************************************/
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
 /* Box Model Hack */
 *{
   box-sizing: border-box;
@@ -10,16 +12,86 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
+
 body {
-  background-image: url("https://imgur.com/0CmcKST.jpg");
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(3, 34, 119);
+}
+
+@-webkit-keyframes blueWhite {
+  0% { background-color: rgb(221, 253, 169) }
+  5% { background-color: rgb(238, 253, 169) }
+  10% { background-color: rgb(253, 231, 169) }
+  15% { background-color: rgb(253, 186, 169) }
+  20% { background-color: rgb(255, 187, 219) }
+  25% { background-color: rgb(253, 180, 253) }
+  30% { background-color:rgb(214, 169, 251) }
+  35% { background-color:rgb(206, 184, 255) }
+  40% { background-color:rgb(159, 185, 255) }
+  45% { background-color:rgb(89, 201, 230) }
+  50% {background-color:rgb(93, 197, 245) }
+  55% {background-color:rgb(83, 212, 245) }
+  60% { background-color: rgb(108, 238, 250) }
+  65% { background-color: rgb(93, 236, 255) }
+  70% { background-color: rgb(118, 246, 246) }
+  75% { background-color: rgb(104, 251, 190) }
+  80% {background-color:rgb(101, 245, 156)}
+  85% {background-color:rgb(117, 250, 117)}
+  90% {background-color:rgb(174, 251, 128) }
+  95% {background-color:rgb(209, 255, 156) }
+  100% { background-color:rgb(225, 253, 160) }
+}
+
+body.changeColor {
+  height: 100%;
+  background-color: white;
+  -webkit-animation-name: blueWhite;  
+  -webkit-animation-iteration-count: infinite;  
+  -webkit-animation-duration: 20s; 
   repeat: no-repeat;
   background-size: cover;
 }
 
+.container {
+  height: 600px;
+  margin: 60px 10%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow:10px 10px 5px rgb(3, 34, 119);
+  background-color: rgb(203, 248, 241);
+}
 
 img{
   display: block;
   margin: 0 0;
+}
+
+h1 {
+  padding-top: 20px;
+  text-shadow:1px 1px 1px black;
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2rem;
+  font-style: italic;
+}
+
+input {
+  border: 1px solid rgb(3, 34, 119);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgb(3, 34, 119);
+  padding: .5rem 1rem;
+}
+
+button {
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  background-image: linear-gradient( rgb(3, 50, 182), rgb(2, 21, 73));
+  box-shadow: 2px 2px 2px rgb(3, 34, 119);
+  color: white;
 }
 
 
