@@ -20,15 +20,23 @@ fetch(url)
                                     document.querySelector('h2').innerText = city + `, ${state}`;
 
 
-    fetch(`http://api.weatherapi.com/v1/current.json?key=b31bdec4dfb54793b4a200715210502&q=${city}`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=b31bdec4dfb54793b4a200715210502&q=${city}`)
         .then(res=> res.json())
         .then(data=> {
         console.log(data)
         let lastUpdated = data.current.last_updated
         let degreesC = data.current.temp_c
         let degreesF = data.current.temp_f
-        document.querySelector('h3').innerText = `The current temperature as of ${lastUpdated} is ${degreesC} degrees C and ${degreesF} degrees F.` 
-        })
+        let condition = data.current.condition.text
+        let windDirection = data.current.wind_dir
+        let windMph = data.current.wind_mph
+        let precipitation = data.current.precip_in
+
+        document.querySelector('h3').innerText = `The current temperature as of ${lastUpdated} is ${degreesC} degrees C / ${degreesF} degrees F. It appears ${condition.toLowerCase()}.` 
+        document.querySelector('#wind').innerText = `The current wind speed and direction is ${windMph} ${windDirection}.`
+        document.querySelector('#precipitation').innerText = `The current precipitation is ${precipitation} inches.`
+    
+    })
     }
     )
     
@@ -36,6 +44,7 @@ fetch(url)
         console.log(`error ${err}`)
     })
 }
+
 
 
 
