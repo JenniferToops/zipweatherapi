@@ -13,6 +13,11 @@
 /* LAYOUT
 /*******************************************/
 
+/* https://imagecolorpicker.com/ */
+/* share icon <i class="fas fa-share-alt"></i> with background color #ed546b*/
+/* thermometor icon https://fontawesome.com/v5.15/icons/thermometer-half?style=solid */
+/* add #544c84 linear-gradient top left to right */
+
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   background-color: #6f668e;
