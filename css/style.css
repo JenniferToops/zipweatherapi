@@ -22,8 +22,9 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  background-image: linear-gradient(to bottom right, #544c84, #6f668e);
+  background-image: linear-gradient(to bottom right, rgba(84, 76, 132, 0.90), rgba(131, 124, 160, 0.90)), url("../images/iceberg.png");
   background-size: cover;
+  background-position: right;
   background-repeat: no-repeat;
   color: white;
 }
@@ -59,6 +60,14 @@ h1 {
 
 .btn {
   color: white;
+}
+
+.fa-share-alt {
+  background-color: #ed546b;
+  opacity: 0.80;
+  border-radius: 75px;
+  padding: 1.5rem 1.75rem 1.5rem 1.5rem;
+  text-align: center;
 }
 
 .spicy-red {

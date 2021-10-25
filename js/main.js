@@ -31,12 +31,12 @@ fetch(url)
         let longitude = data.location.lon
 
         // need to figure out all the conditions, find images that match, and save them to images folder so they can render when called/fetched
-        document.querySelector('img').src = `./images/${condition}.png`
+        document.querySelector('img').src = `./images/${condition.toLowerCase().split(" ").join("")}.png`
 
         let lat = data.location.lat > 0 ? "N" : "S"
         let lon = data.location.lon > 0 ? "E" : "W"
 
-        document.querySelector('#temp').innerText = `${degreesF}\u00B0` 
+        document.querySelector('#temp').innerHTML = `<i class="fas fa-thermometer-half"></i> ${degreesF}\u00B0` 
         document.querySelector('#condition').innerHTML = `<span id="condition-bold">${condition.toUpperCase()}</span> DAY` 
         document.querySelector('#latitude').innerText = `${Math.abs(latitude)}\u00B0 ${lat}`
         document.querySelector('#longitude').innerText = `${Math.abs(longitude)}\u00B0 ${lon}`
