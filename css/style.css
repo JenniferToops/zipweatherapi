@@ -19,10 +19,13 @@
 /* add #544c84 linear-gradient top left to right */
 
 body {
+  width: 100vw;
+  height: 100vh;
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  background-color: #6f668e;
+  background-image: linear-gradient(to bottom right, #544c84, #6f668e);
+  background-size: cover;
+  background-repeat: no-repeat;
   color: white;
-
 }
 
 .container {
