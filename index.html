@@ -5,32 +5,74 @@
     	<meta name="description" content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
 
-		<title>Weather Machine</title>
-
+		<title>Find My Weather</title>
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+		<link rel="icon" href="./images/icon16.png">
+
 	</head>
-	<body>
-		<div class="changeColor">
-		<section class="container">
-			<img src="" alt="">		
-			<div class="text">
-				<h1>Your Current Local Weather</h1>
-				<input type="text" name="" value="" placeholder="Enter Zipcode">
-				<button type="button" name="button">Submit</button>
-				<h2></h2>
-				<h3></h3>
-				<p id="wind"></p> 
-				<p id="precipitation"></p>
-			</div>
-		<footer>
-			<p>Copyright &#169;2021 Creative Software Solutions. All rights reserved. </p>
-		</footer>	
+	<body onload="loadZip()">
+		<section class="container">			
+			<h1>Find My Weather</h1>
+
+				<form>
+					<div class="input-container">
+					  	<label for="zipcode" class="visually-hidden">Enter zipcode to get your weather</label>
+					  	<input type="search" class="form-control" name="" id="zipcode" value="" placeholder="Enter Zipcode" aria-describedby="enter zipcode to get your weather">
+					  	<button type="button" onclick="getWeather()" class="btn spicy-red" name="button">Submit</button>
+					</div>
+					<span id="zip-error"></span>
+				</form>
+
+			<section class="weather-info">
+				<div id="icon"><img src=""></div>
+				<div id="temp"></div>
+				<div id="condition"></div>
+				<div id="city"></div>
+				<div class="lat-lon"><span id="latitude"></span>  <span id="longitude"></span></div>
+			</section>	
+
+			<!-- Button trigger modal -->
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+	<i class="fas fa-circle fa-share-alt fa-2x"></i>
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content">
+		<div class="modal-header">		
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<!-- https://twitter.com/share?url=https://zipweatherapi.netlify.app/ -->
+			<a href="https://twitter.com/share?text=Check Your Weather&url=https://zipweatherapi.netlify.app/" target="_blank" id="twitter">
+				<i class="fab fa-twitter" id="twitter-icon">
+				</i>
+			</a>
+			<!-- "mailto:?subject=Your&#160;Current&#160;Weather&#160;App&body=Check&#160;out&#160;your&#160;current&#160;weather&#160;https://zipweatherapi.netlify.app/"  -->
+			<a href="mailto:?subject=Your&#160;Current&#160;Weather&#160;App&body=Check&#160;out&#160;your&#160;current&#160;weather&#160;https://zipweatherapi.netlify.app/" id="mail">
+				<i class="fas fa-envelope" id="email-icon">
+				</i>
+			</a>
+			<!-- href="https://www.facebook.com/sharer/sharer.php?u=https://zipweatherapi.netlify.app" -->
+			<a href="https://www.facebook.com/sharer/sharer.php?u=https://zipweatherapi.netlify.app"
+			 target="_blank" id="fb">
+				<i class="fab fa-facebook" id="facebook-icon"></i>
+			</a>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary spicy-red" id="close-button" data-bs-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	</div>
+  </div>
 		</section>
 		<script src="js/main.js">
-
 		</script>
-		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	</body>
 </html>

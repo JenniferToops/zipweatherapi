@@ -2,7 +2,7 @@
 /* CSS
 /*******************************************/
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap');
 
 /* Box Model Hack */
 *{
@@ -13,100 +13,127 @@
 /* LAYOUT
 /*******************************************/
 
+/* https://imagecolorpicker.com/ */
+/* share icon <i class="fas fa-share-alt"></i> with background color #ed546b*/
+/* thermometor icon https://fontawesome.com/v5.15/icons/thermometer-half?style=solid */
+/* add #544c84 linear-gradient top left to right */
+
 body {
-  height: 100vh;
-  font-family: "Raleway", sans-serif;
-  text-align: center;
-  font-weight: bold;
-  color: rgb(3, 34, 119);
-  background-image: url('../images/clouds.jpg');
-  background-size: cover;
-  repeat: no-repeat;
-}
-
-@-webkit-keyframes blueWhite {
-  0% { background-color:rgba(155, 200, 255, 0.3) }
-  10% { background-color:rgba(150, 190, 250, 0.3) }
-  20% {background-color:rgba (140, 180, 245, 0.3) }
-  30% {background-color:rgba(130, 170, 240, 0.3) }
-  40% { background-color: rgba(120, 160, 235, 0.3) }
-  50% { background-color:rgba(110, 150, 230, 0.3) }
-  60% { background-color:rgba(110, 160, 230, 0.3) }
-  70% { background-color: rgba(120, 170, 240, 0.3) }
-  80% { background-color: rgba(130, 180, 245, 0.3) }
-  90% { background-color: rgba(140, 190, 250, 0.3) }
-  100% { background-color: rgba(150, 200, 255, 0.3) }
-
-}
-
-.changeColor {
-  height: 100vh;
   width: 100vw;
-  position: absolute;
-  z-index: 0;
-  background-color: white;
-  -webkit-animation-name: blueWhite;  
-  -webkit-animation-iteration-count: infinite;  
-  -webkit-animation-duration: 20s; 
-  repeat: no-repeat;
-  background-size: cover;
-}
-
-.container {
   height: 100vh;
-  margin: 30vh 0 0 0;
-  box-shadow:10px 10px 5px 10px rgb(3, 34, 119);
-  background-color: rgb(232, 234, 250);
-}
-
-.text {
-  width: 100vw;
-  height: 90vh;
-}
-
-img{
-  display: block;
-  margin: 0 0;
-}
-
-h1 {
-  height: 10%;
-  margin: 1;
-  padding-top: 3rem;
-  text-shadow:1px 1px 1px black;
-  font-size: 3rem;
-}
-
-input {
-  border: 1px solid rgb(3, 34, 119);
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px rgb(3, 34, 119);
-  padding: .5rem 1rem;
-  text-align: center;
-}
-
-button {
-  border-radius: 5px;
-  padding: .5rem 1rem;
-  background-image: linear-gradient( rgb(3, 50, 182), rgb(2, 21, 73));
-  box-shadow: 2px 2px 2px rgb(3, 34, 119);
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background-image: linear-gradient(to bottom right, rgba(84, 76, 132, 0.90), rgba(131, 124, 160, 0.90)), url("../images/iceberg.png");
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
   color: white;
 }
 
-footer {
-  width: 100vw;
-  height: 5vh;
+.container {
+  width: 600px;
+  height: 400px;
+  padding: 2rem;
   text-align: center;
 }
 
+.row-size {
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+#icon img {
+  width: 100px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.weather-info div {
+  padding-top: 1rem;
+}
+
+#zipcode {
+  width: 50%;
+  margin-right: 1rem;
+}
+
+.btn {
+  color: white;
+}
+
+.fa-share-alt {
+  margin-top: 1rem;
+  background-color: #ed546b;
+  opacity: 0.80;
+  border-radius: 75px;
+  padding: 1.5rem 1.75rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.spicy-red {
+  background-color: #ed546b;
+}
+
+.fa-thermometer-half {
+  font-size: 2rem;
+}
+
+#temp {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+#condition-bold, #latitude, #longitude {
+  font-weight: 500;
+}
+
+#city {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.btn-check:focus+.btn, .btn:focus, input:active, input:focus {
+  box-shadow: none;
+}
+
+
+.modal-header {
+
+  border: none;
+}
+
+.modal-footer {
+  border: none;
+}
+
+#close-button:hover {
+  background-color: #ed546b;
+}
+
+a {
+  text-decoration: none;
+}
+
+a #twitter-icon, #email-icon, #facebook-icon {  
+  margin: 0 1rem;
+  font-size: 3rem;
+  color: #ed546b;
+  border: none;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
-@media only screen and (max-width: 600px) {
-  container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+/* @media only screen and (max-width: 600px) {
+  .container {
+
   }
 
   input {
@@ -117,4 +144,4 @@ footer {
   button {
     width: 50%;
   }
-}
+} */
