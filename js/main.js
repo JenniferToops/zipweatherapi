@@ -8,31 +8,31 @@
     } 
 })()
 
-const twitterUrl = "https://twitter.com/share?url=https://zipweatherapi.netlify.app/share"
-const twitterMessage = "Your weather "
+const twitterUrl = "https://twitter.com/share?url=https://zipweatherapi.netlify.app/"
+const twitterMessage = "Check Your Weather"
 
 const facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=https://zipweatherapi.netlify.app"
 
+
 function getWeather() {
     const zipcode = document.querySelector('input').value;
-        // console.log("input value = " + zipcode)
-    const zipValidator = /^\d{5}$/.test(zipcode)
-    if (zipcode & zipValidator == true) {
-        //console.log("true zipcode")
-        //console.log(zipcode)
+        console.log("input value = " + zipcode)
+    if (/^\d{5}$/.test(zipcode)) {
+        console.log("true zipcode")
+        console.log(zipcode)
     document.querySelector('#fb').href = facebookUrl + "?zipcode=" + zipcode 
     document.querySelector('#mail').href = document.querySelector('#mail').href + "?zipcode=" + zipcode
     document.querySelector('#twitter').href = twitterUrl + "?zipcode=" + zipcode + "&text=" + twitterMessage
 
     } else {
         document.querySelector('#zip-error').innerHTML= "Please enter a valid 5-digit zip code"
-        //console.log("validator not working")
+        console.log("validator not working")
     }
 
     document.querySelector('input[type=search]').addEventListener('search', () => location.reload());
 
-    const url = "https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip=" + zipcode + "&format=json"
-
+    const url = "https://www.zipwise.com/webservices/zipinfo.php?key=c27q82skwg6nunzu&zip=" + zipcode + "&format=json"
+    // const url = "http://localhost:3000/"
 fetch(url)
     .then(res=> res.json())
     .then(data=> {
@@ -70,6 +70,9 @@ fetch(url)
         console.log(`error ${err}`)
     })
 }
+
+
+
 
 
 
