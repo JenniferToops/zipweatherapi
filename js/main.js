@@ -2,7 +2,7 @@ const twitterUrl = "https://twitter.com/share?url=https://zipweatherapi.netlify.
 const twitterMessage = "Check Your Weather"
 const facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=https://zipweatherapi.netlify.app"
 
-(function () {
+function loadZip() {
     const urlParams = new URLSearchParams(window.location.search);
     const zipcode = urlParams.get('zipcode');
     console.log("onload function is working")
@@ -10,7 +10,7 @@ const facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=https://zipwea
     if (zipcode) {
         getWeather()
     } 
-})()
+}
 
 function getWeather() {
     const zipcode = document.querySelector('input').value;
