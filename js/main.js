@@ -1,38 +1,42 @@
-//The user will enter a zipcode. Our program will plug that information into weather API and output the city information to the DOM
-//API auth key = xb5wkf52e5vcw3dz
-//API with auth key = https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip=00501&format=json
-//API zip code input url = "https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip="+inputVal+"&format=json"
-
 (function () {
     const urlParams = new URLSearchParams(window.location.search);
     const zipcode = urlParams.get('zipcode');
-    console.log("got zipcode onload")
+    console.log("onload function is working")
+    document.querySelector('input').value = zipcode;
     if (zipcode) {
-        document.querySelector('input').value=zipcode;
         getWeather()
     } 
 })()
 
+const twitterUrl = "https://twitter.com/share?url=https://zipweatherapi.netlify.app/share"
+const twitterMessage = "Your weather "
+
+const facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=https://zipweatherapi.netlify.app"
+
 function getWeather() {
     const zipcode = document.querySelector('input').value;
-    const zipValidator = /^\d{5}$/
-    if (zipcode & zipValidator.test(zipcode)) {
-    document.querySelector('#fb').href=document.querySelector('#fb').href + "?zipcode=" + zipcode 
-    document.querySelector('#mail').href=document.querySelector('#mail').href + "?zipcode=" + zipcode
-    document.querySelector('#twitter').href=document.querySelector('#twitter').href + "?zipcode=" + zipcode + "&text=Get your current weather"
-    document.querySelector('#zip-error').innerHTML = null
+        // console.log("input value = " + zipcode)
+    const zipValidator = /^\d{5}$/.test(zipcode)
+    if (zipcode & zipValidator == true) {
+        //console.log("true zipcode")
+        //console.log(zipcode)
+    document.querySelector('#fb').href = facebookUrl + "?zipcode=" + zipcode 
+    document.querySelector('#mail').href = document.querySelector('#mail').href + "?zipcode=" + zipcode
+    document.querySelector('#twitter').href = twitterUrl + "?zipcode=" + zipcode + "&text=" + twitterMessage
+
     } else {
-        document.querySelector('#twitter').href=document.querySelector('#twitter').href + 
-        "&text=Get your current weather"
         document.querySelector('#zip-error').innerHTML= "Please enter a valid 5-digit zip code"
+        //console.log("validator not working")
     }
 
-    const url = "https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip="+zipcode+"&format=json"
+    document.querySelector('input[type=search]').addEventListener('search', () => location.reload());
+
+    const url = "https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip=" + zipcode + "&format=json"
 
 fetch(url)
     .then(res=> res.json())
     .then(data=> {
-        console.log(data)
+        //console.log(data)
                                     let city = data.results.cities[0].city
                                     let state = data.results.state
                                     console.log(city)
@@ -49,7 +53,6 @@ fetch(url)
         let latitude = data.location.lat
         let longitude = data.location.lon
 
-        // need to figure out all the conditions, find images that match, and save them to images folder so they can render when called/fetched
         document.querySelector('img').src = `./images/${condition.toLowerCase().split(" ").join("")}.png`
 
         let lat = data.location.lat > 0 ? "N" : "S"
