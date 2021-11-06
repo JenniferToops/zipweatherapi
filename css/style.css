@@ -41,7 +41,8 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
 }
 
 #icon img {
@@ -51,6 +52,7 @@ h1 {
 .input-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .weather-info div {
@@ -97,13 +99,34 @@ h1 {
   font-size: 1rem;
 }
 
+.btn-check:focus+.btn, .btn:focus, input:active, input:focus {
+  box-shadow: none;
+}
 
-/* footer {
-  width: 100vw;
-  height: 5vh;
-  text-align: center;
-} */
 
+.modal-header {
+
+  border: none;
+}
+
+.modal-footer {
+  border: none;
+}
+
+#close-button:hover {
+  background-color: #ed546b;
+}
+
+a {
+  text-decoration: none;
+}
+
+a #twitter-icon, #email-icon, #facebook-icon {  
+  margin: 0 1rem;
+  font-size: 3rem;
+  color: #ed546b;
+  border: none;
+}
 
 /******************************************
 /* ADDITIONAL STYLES

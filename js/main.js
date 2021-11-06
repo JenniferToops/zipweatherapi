@@ -3,12 +3,31 @@
 //API with auth key = https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip=00501&format=json
 //API zip code input url = "https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip="+inputVal+"&format=json"
 
-// document.querySelector('button').addEventListener('click', getWeather);
-
+(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const zipcode = urlParams.get('zipcode');
+    console.log("got zipcode onload")
+    if (zipcode) {
+        document.querySelector('input').value=zipcode;
+        getWeather()
+    } 
+})()
 
 function getWeather() {
-const inputVal = document.querySelector('input').value;
-const url = "https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip="+inputVal+"&format=json"
+    const zipcode = document.querySelector('input').value;
+    const zipValidator = /^\d{5}$/
+    if (zipcode & zipValidator.test(zipcode)) {
+    document.querySelector('#fb').href=document.querySelector('#fb').href + "?zipcode=" + zipcode 
+    document.querySelector('#mail').href=document.querySelector('#mail').href + "?zipcode=" + zipcode
+    document.querySelector('#twitter').href=document.querySelector('#twitter').href + "?zipcode=" + zipcode + "&text=Get your current weather"
+    document.querySelector('#zip-error').innerHTML = null
+    } else {
+        document.querySelector('#twitter').href=document.querySelector('#twitter').href + 
+        "&text=Get your current weather"
+        document.querySelector('#zip-error').innerHTML= "Please enter a valid 5-digit zip code"
+    }
+
+    const url = "https://www.zipwise.com/webservices/zipinfo.php?key=xb5wkf52e5vcw3dz&zip="+zipcode+"&format=json"
 
 fetch(url)
     .then(res=> res.json())
